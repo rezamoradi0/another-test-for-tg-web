@@ -37,7 +37,12 @@ export function TransferTon() {
         </FlexBoxRow>
         <Button onClick={()=>{
           WebApp.showAlert("Hello Web App");
-        }}/>
+        }}>Alert Btn</Button>
+        <FlexBoxRow>
+          <span>
+            {WebApp.initData.toString()}
+          </span>
+        </FlexBoxRow>
         <Button
           disabled={!connected}
           style={{ marginTop: 18 }}
