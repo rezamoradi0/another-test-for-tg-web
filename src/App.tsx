@@ -8,6 +8,8 @@ import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
+import WebApp  from "@twa-dev/sdk";
+import Planet from "./components/game/Planet";
 const StyledApp = styled.div`
   background-color: #e8e8e8;
   color: black;
@@ -44,9 +46,17 @@ function App() {
             </Button>
 
           </FlexBoxRow>
-          <Counter />
+          {/* <Counter />
           <TransferTon />
-          <Jetton />
+          <Jetton /> */}
+          <div className="w-full  justify-between gap-y-12 items-center flex flex-col p-4 md:p-8">
+            <div className="flex items-center justify-around gap-4">
+              <span className="">   Coins : 10 </span>
+              <span>   Oil : 10 li</span>
+              <span>   Water : 49 li </span>
+            </div>
+            <Planet />
+          </div>
         </FlexBoxCol>
       </AppContainer>
     </StyledApp>
