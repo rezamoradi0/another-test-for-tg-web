@@ -37,6 +37,11 @@ export function TransferTon() {
         </FlexBoxRow>
         <Button onClick={()=>{
           WebApp.showAlert("Hello Web App");
+          try{
+            WebApp.showAlert(WebApp.initData.toString());
+          }catch(err){
+            console.log("Error");
+          }
         }}>Alert Btn</Button>
         <FlexBoxRow>
           <span>
