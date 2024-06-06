@@ -10,10 +10,14 @@ import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
 import WebApp  from "@twa-dev/sdk";
 import Planet from "./components/game/Planet";
+import { useState } from "react";
 const StyledApp = styled.div`
   background-color: #e8e8e8;
   color: black;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
   @media (prefers-color-scheme: dark) {
     background-color: #222;
     color: white;
@@ -30,7 +34,10 @@ const AppContainer = styled.div`
 function App() {
   
   const { network } = useTonConnect();
-
+  const [coinNumber,setCoinNumber]=useState<number>(0);
+  function increaseCoin(){
+    setCoinNumber(perv=>perv+1);
+  }
   return (
     <StyledApp>
       <AppContainer>
@@ -51,14 +58,30 @@ function App() {
           <Jetton /> */}
           <div className="w-full  justify-between gap-y-12 items-center flex flex-col p-4 md:p-8">
             <div className="flex items-center justify-around gap-4">
-              <span className="">   Coins : 10 </span>
+              <span className="">   Coins : {coinNumber} </span>
               <span>   Oil : 10 li</span>
               <span>   Water : 49 li </span>
             </div>
-            <Planet />
+            <Planet increase={increaseCoin} />
           </div>
+         
         </FlexBoxCol>
+       
       </AppContainer>
+      <footer className="w-full items-center justify-around flex" >
+        <Button>
+          Home
+        </Button>
+        <Button>
+          Cosmos
+        </Button>
+        <Button>
+          Allais
+        </Button>
+        <Button>
+          Whisper
+        </Button>
+      </footer>
     </StyledApp>
   );
 }
