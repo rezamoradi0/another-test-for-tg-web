@@ -71,7 +71,9 @@ function App() {
        
       </AppContainer>
       <footer className="w-full items-center justify-around flex" >
-        <Button>
+        <Button onClick={()=>{
+     
+        }}>
           Home
         </Button>
         <Button>

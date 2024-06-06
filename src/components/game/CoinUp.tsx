@@ -26,7 +26,7 @@ export default function CoinUp({ onDisappear, position }: CoinUpProps) {
 
     console.log(position);
     return <div style={{ top: thisPosition.y, left: thisPosition.x }} className={`absolute cursor-default select-none font-bold text-xs rounded-full bg-gray-100 aspect-square  bg-opacity-10 flex  w-5 h-5 items-center justify-center animate-disappear`}>
-        <span className=" aspect-square text-center">
+        <span className=" aspect-square text-center text-white">
             +1
         </span>
     </div>;
