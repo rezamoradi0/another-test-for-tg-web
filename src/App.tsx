@@ -8,9 +8,9 @@ import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
-import WebApp  from "@twa-dev/sdk";
+import WebApp from "@twa-dev/sdk";
 import Planet from "./components/game/Planet";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const StyledApp = styled.div`
   background-color: #e8e8e8;
   color: black;
@@ -28,18 +28,26 @@ const StyledApp = styled.div`
 
 const AppContainer = styled.div`
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
 `;
 
 function App() {
-  
+
   const { network } = useTonConnect();
-  const [coinNumber,setCoinNumber]=useState<number>(0);
-  function increaseCoin(){
-    setCoinNumber(perv=>perv+1);
+  const [coinNumber, setCoinNumber] = useState<number>(0);
+  function increaseCoin() {
+    setCoinNumber(perv => {
+      localStorage.setItem("coins", (perv + 1).toString());
+      return perv + 1
+    });
+
   }
+  useEffect(() => {
+    const number = Number(localStorage.getItem("coins") || 0)
+    setCoinNumber(number);
+  }, [])
   return (
-    <StyledApp onLoad={()=>{
+    <StyledApp onLoad={() => {
       WebApp.expand();
     }}>
       <AppContainer>
@@ -60,19 +68,18 @@ function App() {
           <Jetton /> */}
           <div className="w-full  justify-between gap-y-12 items-center flex flex-col p-4 md:p-8">
             <div className="flex items-center justify-around gap-4">
-              <span className="">   Coins : {coinNumber} </span>
-              <span>   Oil : 10 li</span>
-              <span>   Water : 49 li </span>
+              <span className="flex items-center justify-between gap-2">  <img src="/img.png" width={50} height={50} /> <span>:</span>  <span>  {coinNumber}</span> </span>
+
             </div>
             <Planet increase={increaseCoin} />
           </div>
-         
+
         </FlexBoxCol>
-       
+
       </AppContainer>
       <footer className="w-full items-center justify-around flex" >
-        <Button onClick={()=>{
-     
+        <Button onClick={() => {
+          WebApp.sendData(new Date().toString())
         }}>
           Home
         </Button>
