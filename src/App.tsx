@@ -39,7 +39,9 @@ function App() {
     setCoinNumber(perv=>perv+1);
   }
   return (
-    <StyledApp>
+    <StyledApp onLoad={()=>{
+      WebApp.expand();
+    }}>
       <AppContainer>
         <FlexBoxCol>
           <FlexBoxRow>
