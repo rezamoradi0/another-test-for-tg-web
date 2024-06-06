@@ -46,8 +46,14 @@ function App() {
     const number = Number(localStorage.getItem("coins") || 0)
     setCoinNumber(number);
   }, [])
+  useEffect(()=>{
+    if(WebApp.isExpanded){
+
+    }
+  },[WebApp.isExpanded])
   return (
     <StyledApp onLoad={() => {
+      WebApp.ready()
       WebApp.expand();
     }}>
       <AppContainer>

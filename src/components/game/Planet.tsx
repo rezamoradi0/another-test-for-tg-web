@@ -40,7 +40,7 @@ export default function Planet({ increase}: PlanetProps) {
 
 
         </div>
-        {coinKeys.map(({ key, position }) => <CoinUp position={position} onDisappear={() => {
+        {coinKeys.map(({ key, position }) => <CoinUp key={key} position={position} onDisappear={() => {
             removeCoins(key)
         }} />)}
 
