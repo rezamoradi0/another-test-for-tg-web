@@ -48,7 +48,7 @@ function App() {
   }, [])
   useEffect(()=>{
     if(WebApp.isExpanded){
-
+    console.log(WebApp.CloudStorage);
     }
   },[WebApp.isExpanded])
   return (
@@ -56,7 +56,7 @@ function App() {
       WebApp.ready()
       WebApp.expand();
     }}>
-      <AppContainer>
+      {/* <AppContainer>
         <FlexBoxCol>
           <FlexBoxRow>
             <TonConnectButton />
@@ -69,9 +69,9 @@ function App() {
             </Button>
 
           </FlexBoxRow>
-          {/* <Counter />
+          <Counter />
           <TransferTon />
-          <Jetton /> */}
+          <Jetton />
           <div className="w-full  justify-between gap-y-12 items-center flex flex-col p-4 md:p-8">
             <div className="flex items-center justify-around gap-4">
               <span className="flex items-center justify-between gap-2">  <img src="/img.png" width={50} height={50} /> <span>:</span>  <span>  {coinNumber}</span> </span>
@@ -79,11 +79,10 @@ function App() {
             </div>
             <Planet increase={increaseCoin} />
           </div>
-
-        </FlexBoxCol>
-
-      </AppContainer>
-      <footer className="w-full items-center justify-around flex" >
+ 
+        </FlexBoxCol> 
+      </AppContainer> */}
+      {/* <footer className="w-full items-center justify-around flex" >
         <Button onClick={() => {
           WebApp.sendData(new Date().toString())
         }}>
@@ -98,7 +97,8 @@ function App() {
         <Button>
           Whisper
         </Button>
-      </footer>
+      </footer> */}
+      TEST UPDATE WORKING ? 
     </StyledApp>
   );
 }
