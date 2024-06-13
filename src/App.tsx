@@ -18,7 +18,7 @@ function App() {
     }}>
 
       <Welcome language="fa" />
-      <p>
+      <p> d
         {WebApp.initData.toString()}
         <hr/>
         {WebApp.initDataUnsafe.toString()}
